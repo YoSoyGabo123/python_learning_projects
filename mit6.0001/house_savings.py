@@ -1,3 +1,8 @@
+#WELCOME
+# THIS IS PROBLEM SET 1 OF MIT OPENCOURSEWARE 6.0001 INTRODUCTION TO PYTHON
+
+# PART A: HOUSE HUNTING
+
 # totalCost = 1000000
 # portionDownPayment = 0.25
 # currentSavings = 0
@@ -21,6 +26,9 @@
 
 # print(months)
 
+
+# PART B: SAVING WITH A RAISE
+
 # print("Welcome to your dream house prize calculator")
 # annualSalary = int(input("Write your annual salary: "))
 # portionSaved = float(input("Write the portion of your salary saved (Write in decimal e.g 0.1 = 10%): "))
@@ -41,7 +49,8 @@
 
 
 
-
+# PART C: FINDING THE RIGHT AMOUNT TO SAVE AWAY
+# IN PROGRES...
 
 print("Welcome to your dream house prize calculator")
 annualSalary = int(input("Write your annual salary: "))
