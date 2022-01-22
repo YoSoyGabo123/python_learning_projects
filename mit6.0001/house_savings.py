@@ -63,7 +63,21 @@ savings = 0
 downPayment = totalCost * 0.25
 newSalary = annualSalary
 time = 0
-while time != months:
+months = 36
+savingsRateLow = 0
+savingsRateHigh = 1
+
+while time < months:
+        portionSaved = (savingsRateLow + savingsRateHigh)/2
+        savings += (savings*0.04)/12+ (newSalary*portionSaved)/12
+        time += 1
+        if time % 6 == 0:
+            newSalary += newSalary * semiAnnualRaise
+        if savings > downPayment:
+                savingsRateHigh = portionSaved
+        if savings
+
+
      
     
 
