@@ -77,16 +77,20 @@ while month != 36:
         
         while savings < downPayment:
                 savings += (savings*0.04)/12+ (newSalary*portionSaved)/12
-                if time % 6 == 0:
+                if month % 6 == 0:
                         newSalary += newSalary * semiAnnualRaise
                 month += 1
 
-        if savings > downPayment:
-                        savingsRateHigh = portionSaved
-                        month -= month
-        if savings < downPayment:
-                        savingsRateLow = portionSaved
-                        month -= month
+        if month < 36:
+                    savingsRateHigh = portionSaved
+                    month -= month
+                    savings -= savings
+                    newSalary = annualSalary
+        if month > 36:
+                    savingsRateLow = portionSaved
+                    month -= month
+                    savings -= savings
+                    newSalary = annualSalary
 
 print(time)
 print(portionSaved)
