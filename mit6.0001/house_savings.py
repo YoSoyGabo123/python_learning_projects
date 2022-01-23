@@ -52,9 +52,12 @@
 # PART C: FINDING THE RIGHT AMOUNT TO SAVE AWAY
 # IN PROGRES...
 
+from calendar import month
+
+
 print("Welcome to your dream house prize calculator")
 annualSalary = int(input("Write your annual salary: "))
-months = int(input("Number of months in wich you will pay the downpayment: "))
+# months = int(input("Number of months in wich you will pay the downpayment: "))
 portionSaved = 1
 totalCost = 1000000
 semiAnnualRaise = 0.07
@@ -66,16 +69,26 @@ time = 0
 months = 36
 savingsRateLow = 0
 savingsRateHigh = 1
+epsilon = 0.01
 
-while time < months:
+while month != 36:
         portionSaved = (savingsRateLow + savingsRateHigh)/2
-        savings += (savings*0.04)/12+ (newSalary*portionSaved)/12
         time += 1
-        if time % 6 == 0:
-            newSalary += newSalary * semiAnnualRaise
+        month = 0
+        while savings < downPayment:
+                savings += (savings*0.04)/12+ (newSalary*portionSaved)/12
+                if time % 6 == 0:
+                newSalary += newSalary * semiAnnualRaise
+                month += 1
+
         if savings > downPayment:
-                savingsRateHigh = portionSaved
-        if savings
+                        savingsRateHigh = portionSaved
+        if savings < downPayment:
+                        savingsRateLow = portionSaved
+
+print(time)
+print(portionSaved)
+
 
 
      
