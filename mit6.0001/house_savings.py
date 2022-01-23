@@ -78,7 +78,7 @@ while month != 36:
         while savings < downPayment:
                 savings += (savings*0.04)/12+ (newSalary*portionSaved)/12
                 if time % 6 == 0:
-                newSalary += newSalary * semiAnnualRaise
+                        newSalary += newSalary * semiAnnualRaise
                 month += 1
 
         if savings > downPayment:
