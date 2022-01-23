@@ -70,11 +70,11 @@ months = 36
 savingsRateLow = 0
 savingsRateHigh = 1
 epsilon = 0.01
-
+month = 0
 while month != 36:
         portionSaved = (savingsRateLow + savingsRateHigh)/2
         time += 1
-        month = 0
+        
         while savings < downPayment:
                 savings += (savings*0.04)/12+ (newSalary*portionSaved)/12
                 if time % 6 == 0:
@@ -83,8 +83,10 @@ while month != 36:
 
         if savings > downPayment:
                         savingsRateHigh = portionSaved
+                        month -= month
         if savings < downPayment:
                         savingsRateLow = portionSaved
+                        month -= month
 
 print(time)
 print(portionSaved)
