@@ -74,19 +74,22 @@ def is_word_guessed(secret_word, letters_guessed):
     returns: boolean, True if all the letters of secret_word are in letters_guessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
 
 
 
 def get_guessed_word(secret_word, letters_guessed):
+
+    for letter in letters_guessed:
+        if letter in secret_word:
+            print(letter, end='')
+        if letter not in secret_word:
+            print(" _ ", end='')
     '''
     secret_word: string, the word the user is guessing
     letters_guessed: list (of letters), which letters have been guessed so far
     returns: string, comprised of letters, underscores (_), and spaces that represents
       which letters in secret_word have been guessed so far.
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
 
 
 
