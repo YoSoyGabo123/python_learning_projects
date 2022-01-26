@@ -94,17 +94,23 @@ def get_guessed_word(secret_word, letters_guessed):
 
 
 def get_available_letters(letters_guessed):
+
+    alphabet = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
+    for letter in alphabet:
+        if letter in letters_guessed:
+            alphabet.remove(letter)
+    return print(alphabet)
     '''
     letters_guessed: list (of letters), which letters have been guessed so far
     returns: string (of letters), comprised of letters that represents which letters have not
       yet been guessed.
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
     
     
 
 def hangman(secret_word):
+
+    print("Welcome to the Hangman Game")
 
     for tries in range(11):
         letter = input("guess a letter: ")
