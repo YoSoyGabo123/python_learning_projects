@@ -11,9 +11,10 @@
 # (so be sure to read the docstrings!)
 import random
 import string
+import os
 
-WORDLIST_FILENAME = "words.txt"
 
+WORDLIST_FILENAME = ".\mit6.0001\words.txt"
 
 def load_words():
     """
@@ -95,7 +96,7 @@ def get_guessed_word(secret_word, letters_guessed):
 
 def get_available_letters(letters_guessed):
 
-    alphabet = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
+    alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     for letter in alphabet:
         if letter in letters_guessed:
             alphabet.remove(letter)
@@ -111,24 +112,23 @@ def get_available_letters(letters_guessed):
 def hangman(secret_word):
 
     print("Welcome to the Hangman Game by Gabriel Palacios")
-    print("The secret word you will be guessing has" + str(len(secret_word)+1) + "letters. MAKE YOUR BEST GUESSES! YOU HAVE 6")
+    print("The secret word you will be guessing has " + str(len(secret_word)+1) + " letters. MAKE YOUR BEST GUESSES! YOU HAVE 6 TRIES")
 
     number_of_guesses = 6
     for tries in range(number_of_guesses +1):
-        print("You have " + number_of_guesses + " guesses left")
+        print("You have " + str(number_of_guesses) + " guesses left")
         letter = input("guess a letter: ")
 
-        if len(letter) > 0:
-            print("Write just one letter")
-            tries -= 1
-        if letter != str:
-            print("Only use letters")
-            tries -= 1
-        else:
+        if letter in ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]:
+            global letters_guessed
             letters_guessed += letter
             get_guessed_word(secret_word,letters_guessed)
             get_available_letters(letters_guessed)
             number_of_guesses -+ 1
+        else:
+            print("Write just letters")
+            tries -= 1
+            
     if is_word_guessed(secret_word, letters_guessed) == True:
         print("You won")
     else:
