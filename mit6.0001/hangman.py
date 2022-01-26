@@ -49,11 +49,11 @@ def choose_word(wordlist):
 # Load the list of words into the variable wordlist
 # so that it can be accessed from anywhere in the program
 wordlist = load_words()
-
+letters_guessed = []
 
 def is_word_guessed(secret_word, letters_guessed):
 
-    letters_guessed = []
+   
     correct = 0
     for letter in secret_word:
         if letter in letters_guessed:
@@ -110,10 +110,14 @@ def get_available_letters(letters_guessed):
 
 def hangman(secret_word):
 
-    print("Welcome to the Hangman Game")
+    print("Welcome to the Hangman Game by Gabriel Palacios")
+    print("The secret word you will be guessing has" + str(len(secret_word)+1) + "letters. MAKE YOUR BEST GUESSES! YOU HAVE 6")
 
-    for tries in range(11):
+    number_of_guesses = 6
+    for tries in range(number_of_guesses +1):
+        print("You have " + number_of_guesses + " guesses left")
         letter = input("guess a letter: ")
+
         if len(letter) > 0:
             print("Write just one letter")
             tries -= 1
@@ -122,6 +126,13 @@ def hangman(secret_word):
             tries -= 1
         else:
             letters_guessed += letter
+            get_guessed_word(secret_word,letters_guessed)
+            get_available_letters(letters_guessed)
+            number_of_guesses -+ 1
+    if is_word_guessed(secret_word, letters_guessed) == True:
+        print("You won")
+    else:
+        print("The word was " + secret_word + "keep trying")
     '''
     secret_word: string, the secret word to guess.
     
@@ -147,7 +158,7 @@ def hangman(secret_word):
     Follows the other limitations detailed in the problem write-up.
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+
 
 
 
