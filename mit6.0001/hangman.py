@@ -52,6 +52,20 @@ wordlist = load_words()
 
 
 def is_word_guessed(secret_word, letters_guessed):
+
+    letters_guessed = []
+    correct = 0
+    for letter in secret_word:
+        if letter in letters_guessed:
+            correct += 1
+        else:
+            continue
+    if len(secret_word) == correct-1:
+        return True
+    else: 
+        return False
+
+
     '''
     secret_word: string, the word the user is guessing; assumes all letters are
       lowercase
@@ -61,7 +75,6 @@ def is_word_guessed(secret_word, letters_guessed):
       False otherwise
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
 
 
 
@@ -89,6 +102,17 @@ def get_available_letters(letters_guessed):
     
 
 def hangman(secret_word):
+
+    for tries in range(11):
+        letter = input("guess a letter: ")
+        if len(letter) > 0:
+            print("Write just one letter")
+            tries -= 1
+        if letter != str:
+            print("Only use letters")
+            tries -= 1
+        else:
+            letters_guessed += letter
     '''
     secret_word: string, the secret word to guess.
     
