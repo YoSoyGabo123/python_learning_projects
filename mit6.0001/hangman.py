@@ -80,11 +80,17 @@ def is_word_guessed(secret_word, letters_guessed):
 
 def get_guessed_word(secret_word, letters_guessed):
 
-    for letter in letters_guessed:
-        if letter in secret_word:
-            print(letter, end='')
-        if letter not in secret_word:
-            print(" _ ", end='')
+    for letter in secret_word:
+      if letter in letters_guessed:
+        print(letter, end='')
+      if letter not in letters_guessed:
+        print(" _ ", end='')
+
+    # for letter in letters_guessed:
+    #     if letter in secret_word:
+    #         print(letter, end='')
+    #     if letter not in secret_word:
+    #         print(" _ ", end='')
     '''
     secret_word: string, the word the user is guessing
     letters_guessed: list (of letters), which letters have been guessed so far
@@ -100,7 +106,7 @@ def get_available_letters(letters_guessed):
     for letter in alphabet:
         if letter in letters_guessed:
             alphabet.remove(letter)
-    return print(alphabet)
+    return print("You have these letters to choose: " + alphabet)
     '''
     letters_guessed: list (of letters), which letters have been guessed so far
     returns: string (of letters), comprised of letters that represents which letters have not
@@ -132,7 +138,7 @@ def hangman(secret_word):
     if is_word_guessed(secret_word, letters_guessed) == True:
         print("You won")
     else:
-        print("The word was " + secret_word + "keep trying")
+        print("The word was " + '''"''' + secret_word + '"' " keep trying")
     '''
     secret_word: string, the secret word to guess.
     
