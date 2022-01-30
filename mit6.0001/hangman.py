@@ -106,7 +106,8 @@ def get_available_letters(letters_guessed):
     for letter in alphabet:
         if letter in letters_guessed:
             alphabet.remove(letter)
-    return print("You have these letters to choose: " + alphabet)
+    print("")
+    return print("You have these letters to choose: ", alphabet)
     '''
     letters_guessed: list (of letters), which letters have been guessed so far
     returns: string (of letters), comprised of letters that represents which letters have not
@@ -118,22 +119,32 @@ def get_available_letters(letters_guessed):
 def hangman(secret_word):
 
     print("Welcome to the Hangman Game by Gabriel Palacios")
-    print("The secret word you will be guessing has " + str(len(secret_word)+1) + " letters. MAKE YOUR BEST GUESSES! YOU HAVE 6 TRIES")
-
     number_of_guesses = 6
+    print("The secret word you will be guessing has " + str(len(secret_word)+1) + " letters. MAKE YOUR BEST GUESSES! YOU HAVE " + str(number_of_guesses) +  " TRIES")
+
+    
     for tries in range(number_of_guesses +1):
         print("You have " + str(number_of_guesses) + " guesses left")
         letter = input("guess a letter: ")
-
+        global letters_guessed
+        if letter in letters_guessed:
+          print("You already tried that")
+          continue
         if letter in ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]:
-            global letters_guessed
+            
             letters_guessed += letter
             get_guessed_word(secret_word,letters_guessed)
             get_available_letters(letters_guessed)
-            number_of_guesses -+ 1
+            number_of_guesses -= 1
+          
         else:
             print("Write just letters")
             tries -= 1
+            
+        if letter in secret_word:
+          number_of_guesses += 1
+          continue
+        
             
     if is_word_guessed(secret_word, letters_guessed) == True:
         print("You won")
